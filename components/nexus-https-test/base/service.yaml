@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: nexus-https-test
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: nexus-https-test 
+  name: nexus-https-test
+spec:
+  ports:
+  - port: 8081 
+    targetPort: 8081 
+  selector:
+    app.kubernetes.io/instance: nexus-https-test 

@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: nexus-https-test
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: nexus-https-test 
+  name: nexus-https-test
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: nexus-https-test
+    weight: 100 
